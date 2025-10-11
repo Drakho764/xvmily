@@ -91,8 +91,8 @@
     scene.add(new THREE.AmbientLight(0xffffff, 0.4));
 
     // Texturas
-    const frontTexture = new THREE.TextureLoader().load("img/1.png");
-    const backTexture = new THREE.TextureLoader().load("img/2.png");
+    const frontTexture = new THREE.TextureLoader().load("1.png");
+    const backTexture = new THREE.TextureLoader().load("2.png");
     frontTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
     backTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
@@ -135,5 +135,6 @@
     });
   </script>
 </body>
+
 
 </html>
