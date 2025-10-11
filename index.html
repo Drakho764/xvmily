@@ -36,25 +36,30 @@
     }
 
     #btnBoda {
-    position: fixed;
-    bottom: 30px;          /* un poco más arriba del borde */
-    right: 30px;           /* margen desde la derecha */
-    z-index: 10000;        /* encima de la escena 3D */
-    background-color: rgba(3, 15, 119, 0.9); /* semi-transparente */
-    color: white;
-    padding: 12px 22px;
-    border-radius: 50px;   /* bordes redondeados */
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-  }
+      position: fixed;
+      bottom: 30px;
+      /* un poco más arriba del borde */
+      right: 30px;
+      /* margen desde la derecha */
+      z-index: 10000;
+      /* encima de la escena 3D */
+      background-color: rgba(3, 15, 119, 0.9);
+      /* semi-transparente */
+      color: white;
+      padding: 12px 22px;
+      border-radius: 50px;
+      /* bordes redondeados */
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
 
-  #btnBoda:hover {
-    transform: scale(1.1);
-    background-color: rgba(22, 100, 189, 0.95);
-  }
+    #btnBoda:hover {
+      transform: scale(1.1);
+      background-color: rgba(22, 100, 189, 0.95);
+    }
   </style>
 </head>
 
@@ -92,11 +97,14 @@
 
     // Texturas
     const frontTexture = new THREE.TextureLoader().load("1.png");
+    frontTexture.minFilter = THREE.LinearFilter; // para mejorar nitidez
+    frontTexture.magFilter = THREE.LinearFilter;
+
     const backTexture = new THREE.TextureLoader().load("2.png");
-    frontTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    backTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    backTexture.minFilter = THREE.LinearFilter;
+    backTexture.magFilter = THREE.LinearFilter;
 
-
+    renderer.setPixelRatio(window.devicePixelRatio);
     // Materialess
     const materials = [
       new THREE.MeshPhongMaterial({ color: 0xdddddd }),
@@ -135,6 +143,5 @@
     });
   </script>
 </body>
-
 
 </html>
